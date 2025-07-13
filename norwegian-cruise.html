@@ -45,20 +45,41 @@
     </nav>
 
     <!-- Hero Section -->
+    <!-- Sticky Booking Bar -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gold/20 shadow-lg z-50 transform transition-transform duration-300" id="bookingBar">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <div>
+                    <span class="block text-sm text-slate-600">Starting from</span>
+                    <span class="block text-2xl font-bold text-gold">$3,988 CAD</span>
+                </div>
+                <div class="hidden md:block h-8 w-px bg-slate-200"></div>
+                <div class="hidden md:block">
+                    <span class="block text-sm text-slate-600">Special Offer Ends In</span>
+                    <span class="block font-bold" id="offerCountdown">Loading...</span>
+                </div>
+            </div>
+            <button onclick="scrollToBooking()" class="px-6 py-3 bg-gradient-to-r from-gold to-yellow-500 text-royalblue rounded-lg font-semibold hover:opacity-90 transition shadow-md">
+                Book Now <i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+    </div>
+
     <div class="relative h-[60vh] bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1548574505-5e239809ee19?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
         <div class="absolute inset-0 bg-black/50"></div>
         <div class="absolute inset-0 flex items-center justify-center text-center text-white">
             <div>
                 <h1 class="text-4xl md:text-6xl font-playfair font-bold mb-4">14-Day Australia & New Zealand Cruise</h1>
                 <p class="text-xl mb-8">Norwegian Spirit | Departing January 27, 2026</p>
-                <div class="flex justify-center items-center space-x-4">
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
                     <div class="bg-gold/20 backdrop-blur-sm px-6 py-3 rounded-lg">
                         <span class="block text-2xl font-bold">$3,988 CAD</span>
                         <span class="text-sm">per person</span>
                     </div>
-                    <button class="px-8 py-4 bg-gradient-to-r from-gold to-yellow-500 text-royalblue rounded-xl font-semibold hover:opacity-90 transition shadow-lg">
-                        Book Now <i class="fas fa-arrow-right ml-2"></i>
-                    </button>
+                    <div class="bg-white/10 backdrop-blur-sm px-6 py-3 rounded-lg">
+                        <span class="block text-lg font-bold">Special Offer Ends In</span>
+                        <span class="text-xl font-bold text-gold" id="heroCountdown">Loading...</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -167,6 +188,124 @@
             </div>
         </div>
 
+        <!-- Photo Gallery -->
+        <div class="mb-16">
+            <h2 class="text-3xl font-playfair font-bold mb-8 text-center">Cruise Gallery</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="relative group cursor-pointer overflow-hidden rounded-xl" onclick="openGallery(0)">
+                    <img src="https://images.unsplash.com/photo-1548574505-5e239809ee19" alt="Cruise Ship" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <i class="fas fa-expand text-white text-2xl"></i>
+                    </div>
+                </div>
+                <div class="relative group cursor-pointer overflow-hidden rounded-xl" onclick="openGallery(1)">
+                    <img src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b" alt="Destinations" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <i class="fas fa-expand text-white text-2xl"></i>
+                    </div>
+                </div>
+                <div class="relative group cursor-pointer overflow-hidden rounded-xl" onclick="openGallery(2)">
+                    <img src="https://images.unsplash.com/photo-1562514947-bf9cf8e45e3a" alt="Activities" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <i class="fas fa-expand text-white text-2xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cabin Selection -->
+        <div class="mb-16" id="bookingSection">
+            <h2 class="text-3xl font-playfair font-bold mb-8 text-center">Select Your Cabin</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-lg border border-gold/20 overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461" alt="Inside Cabin" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 right-4 bg-gold text-royalblue px-3 py-1 rounded-full text-sm font-bold">BEST VALUE</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">Inside Cabin</h3>
+                        <p class="text-slate-600 mb-4">Comfortable interior stateroom with modern amenities</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center text-sm text-slate-600">
+                                <i class="fas fa-check text-gold mr-2"></i> 160+ sq. ft.
+                            </li>
+                            <li class="flex items-center text-sm text-slate-600">
+                                <i class="fas fa-check text-gold mr-2"></i> Queen-size bed
+                            </li>
+                            <li class="flex items-center text-sm text-slate-600">
+                                <i class="fas fa-check text-gold mr-2"></i> Private bathroom
+                            </li>
+                        </ul>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="block text-sm text-slate-500">Starting from</span>
+                                <span class="block text-2xl font-bold text-gold">$3,988</span>
+                            </div>
+                            <button class="px-6 py-2 bg-royalblue text-white rounded-lg hover:bg-navy transition">Select</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg border border-gold/20 overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461" alt="Oceanview Cabin" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 right-4 bg-gold text-royalblue px-3 py-1 rounded-full text-sm font-bold">POPULAR</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">Oceanview Cabin</h3>
+                        <p class="text-slate-600 mb-4">Stunning views through your own window</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center text-sm text-slate-600">
+                                <i class="fas fa-check text-gold mr-2"></i> 180+ sq. ft.
+                            </li>
+                            <li class="flex items-center text-sm text-slate-600">
+                                <i class="fas fa-check text-gold mr-2"></i> Picture window
+                            </li>
+                            <li class="flex items-center text-sm text-slate-600">
+                                <i class="fas fa-check text-gold mr-2"></i> Enhanced amenities
+                            </li>
+                        </ul>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="block text-sm text-slate-500">Starting from</span>
+                                <span class="block text-2xl font-bold text-gold">$4,588</span>
+                            </div>
+                            <button class="px-6 py-2 bg-royalblue text-white rounded-lg hover:bg-navy transition">Select</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg border border-gold/20 overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461" alt="Balcony Suite" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 right-4 bg-gold text-royalblue px-3 py-1 rounded-full text-sm font-bold">LUXURY</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">Balcony Suite</h3>
+                        <p class="text-slate-600 mb-4">Spacious suite with private balcony</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center text-sm text-slate-600">
+                                <i class="fas fa-check text-gold mr-2"></i> 250+ sq. ft.
+                            </li>
+                            <li class="flex items-center text-sm text-slate-600">
+                                <i class="fas fa-check text-gold mr-2"></i> Private balcony
+                            </li>
+                            <li class="flex items-center text-sm text-slate-600">
+                                <i class="fas fa-check text-gold mr-2"></i> Butler service
+                            </li>
+                        </ul>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="block text-sm text-slate-500">Starting from</span>
+                                <span class="block text-2xl font-bold text-gold">$5,988</span>
+                            </div>
+                            <button class="px-6 py-2 bg-royalblue text-white rounded-lg hover:bg-navy transition">Select</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Ship Info -->
         <div class="bg-white rounded-xl shadow-lg border border-gold/20 p-8 mb-16">
             <h2 class="text-3xl font-playfair font-bold mb-8 text-center">Norwegian Spirit</h2>
@@ -216,7 +355,88 @@
         </div>
     </div>
 
+    <!-- Gallery Modal -->
+    <div id="galleryModal" class="fixed inset-0 bg-black/90 z-50 hidden">
+        <div class="absolute top-4 right-4">
+            <button onclick="closeGallery()" class="text-white hover:text-gold transition">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+        </div>
+        <div class="h-full flex items-center justify-center p-4">
+            <button onclick="prevImage()" class="absolute left-4 text-white hover:text-gold transition">
+                <i class="fas fa-chevron-left text-2xl"></i>
+            </button>
+            <img id="galleryImage" src="" alt="Gallery Image" class="max-h-[80vh] max-w-[90vw] object-contain">
+            <button onclick="nextImage()" class="absolute right-4 text-white hover:text-gold transition">
+                <i class="fas fa-chevron-right text-2xl"></i>
+            </button>
+        </div>
+    </div>
+
     <script>
+        // Sticky booking bar
+        window.onscroll = function() {
+            if (window.pageYOffset > 300) {
+                document.getElementById('bookingBar').style.transform = 'translateY(0)';
+            } else {
+                document.getElementById('bookingBar').style.transform = 'translateY(100%)';
+            }
+        };
+
+        function scrollToBooking() {
+            document.getElementById('bookingSection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Countdown Timer
+        function updateCountdown() {
+            const targetDate = new Date('2025-08-13T23:59:59').getTime();
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            const countdownText = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            document.getElementById('offerCountdown').innerText = countdownText;
+            document.getElementById('heroCountdown').innerText = countdownText;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Gallery
+        const galleryImages = [
+            'https://images.unsplash.com/photo-1548574505-5e239809ee19',
+            'https://images.unsplash.com/photo-1503220317375-aaad61436b1b',
+            'https://images.unsplash.com/photo-1562514947-bf9cf8e45e3a'
+        ];
+
+        let currentImageIndex = 0;
+
+        function openGallery(index) {
+            currentImageIndex = index;
+            document.getElementById('galleryImage').src = galleryImages[index];
+            document.getElementById('galleryModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGallery() {
+            document.getElementById('galleryModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            document.getElementById('galleryImage').src = galleryImages[currentImageIndex];
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            document.getElementById('galleryImage').src = galleryImages[currentImageIndex];
+        }
+
         // Full itinerary data
         const itineraryData = [
             { days: '4-5', dates: 'Jan 30-31', title: 'Melbourne, Australia', description: 'Explore the cultural capital of Australia' },
