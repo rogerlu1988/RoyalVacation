@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Vacations | Luxury Travel Booking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#D4AF37',
+                        royalblue: '#0C2D48',
+                        navy: '#145DA0',
+                        cream: '#F8F4E9',
+                        burgundy: '#800020'
+                    },
+                    fontFamily: {
+                        'playfair': ['Playfair Display', 'serif'],
+                        'poppins': ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f8f4e9 0%, #f0e6d2 100%);
+            min-height: 100vh;
+        }
+        .logo {
+            background: linear-gradient(135deg, #D4AF37 0%, #F9E076 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #D4AF37;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        .search-tab.active {
+            background: linear-gradient(135deg, #0C2D48 0%, #145DA0 100%);
+            color: white;
+            box-shadow: 0 10px 20px rgba(12, 45, 72, 0.2);
+        }
+        .destination-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+        .destination-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        .deal-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .experience-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .floating-label {
+            top: 0.5rem;
+            left: 1rem;
+            transition: all 0.3s;
+            pointer-events: none;
+        }
+        input:focus + .floating-label,
+        input:not(:placeholder-shown) + .floating-label {
+            top: -0.8rem;
+            left: 0.8rem;
+            font-size: 0.75rem;
+            background: white;
+            padding: 0 0.25rem;
+        }
+        .royal-badge {
+            border: 2px solid #D4AF37;
+        }
+        .crown-icon {
+            position: relative;
+        }
+        .crown-icon:before {
+            content: "👑";
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            font-size: 24px;
+            transform: rotate(25deg);
+        }
+        .hero-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d4af37' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        .countdown-box {
+            background: rgba(12, 45, 72, 0.9);
+            border: 2px solid #D4AF37;
+        }
+    </style>
+</head>
+<body class="font-poppins text-royalblue">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-royalblue to-navy flex items-center justify-center text-gold font-bold text-xl mr-3 shadow-lg">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <span class="text-2xl font-playfair font-bold logo">Royal Vacations</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#" class="nav-link font-medium transition">Destinations</a>
+                <a href="#" class="nav-link font-medium transition">Experiences</a>
+                <a href="#" class="nav-link font-medium transition">Luxury Stays</a>
+                <a href="#" class="nav-link font-medium transition">Yacht Charters</a>
+                <a href="#" class="nav-link font-medium transition">VIP Services</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="px-4 py-2 rounded-lg font-medium hover:text-gold transition">
+                    <i class="fas fa-user mr-2"></i>Sign In
+                </button>
+                <button class="px-4 py-2 bg-gradient-to-r from-royalblue to-navy text-white rounded-lg font-medium hover:opacity-90 transition shadow-lg">
+                    <i class="fas fa-crown mr-2"></i>VIP Access
+                </button>
+            </div>
+            <button class="md:hidden text-royalblue">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="py-16 px-4 royal-pattern">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl md:text-6xl font-playfair font-bold mb-4">Experience Travel <span class="logo">Fit For Royalty</span></h1>
+                <p class="text-xl text-navy max-w-2xl mx-auto">Exclusive luxury escapes curated by our royal travel concierge</p>
+            </div>
+            
+            <!-- Search Tabs -->
+            <div class="bg-white rounded-2xl shadow-xl p-2 max-w-4xl mx-auto mb-16 border border-gold/30">
+                <div class="flex space-x-2 mb-4">
+                    <button class="search-tab active flex-1 py-3 px-4 rounded-xl font-semibold transition">Destinations</button>
+                    <button class="search-tab flex-1 py-3 px-4 rounded-xl font-semibold transition">Private Villas</button>
+                    <button class="search-tab flex-1 py-3 px-4 rounded-xl font-semibold transition">Yacht Charters</button>
+                    <button class="search-tab flex-1 py-3 px-4 rounded-xl font-semibold transition">VIP Experiences</button>
+                </div>
+                
+                <!-- Search Form -->
+                <div class="p-4">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                        <div class="relative">
+                            <input type="text" class="w-full p-4 border border-gold/30 rounded-xl focus:ring-2 focus:ring-gold" placeholder=" ">
+                            <label class="floating-label text-slate-500">Dream Destination</label>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="relative">
+                                <input type="date" class="w-full p-4 border border-gold/30 rounded-xl focus:ring-2 focus:ring-gold" placeholder=" ">
+                                <label class="floating-label text-slate-500">Check In</label>
+                            </div>
+                            <div class="relative">
+                                <input type="date" class="w-full p-4 border border-gold/30 rounded-xl focus:ring-2 focus:ring-gold" placeholder=" ">
+                                <label class="floating-label text-slate-500">Check Out</label>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="relative">
+                                <select class="w-full p-4 border border-gold/30 rounded-xl focus:ring-2 focus:ring-gold appearance-none">
+                                    <option>1 Guest</option>
+                                    <option>2 Guests</option>
+                                    <option>3 Guests</option>
+                                    <option>4+ Guests</option>
+                                </select>
+                                <label class="floating-label text-slate-500">Guests</label>
+                            </div>
+                            <div class="relative">
+                                <select class="w-full p-4 border border-gold/30 rounded-xl focus:ring-2 focus:ring-gold appearance-none">
+                                    <option>Luxury Suite</option>
+                                    <option>Private Villa</option>
+                                    <option>Presidential Suite</option>
+                                    <option>Private Island</option>
+                                </select>
+                                <label class="floating-label text-slate-500">Accommodation</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center">
+                            <div class="flex items-center mr-6">
+                                <input type="checkbox" class="w-5 h-5 text-gold rounded focus:ring-gold">
+                                <label class="ml-2 text-slate-700">Private Jet</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" class="w-5 h-5 text-gold rounded focus:ring-gold">
+                                <label class="ml-2 text-slate-700">Butler Service</label>
+                            </div>
+                        </div>
+                        <button class="px-8 py-4 bg-gradient-to-r from-gold to-yellow-200 text-royalblue rounded-xl font-semibold hover:opacity-90 transition shadow-lg">
+                            Discover Luxury <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Trust Badges -->
+            <div class="flex flex-wrap justify-center gap-6">
+                <div class="royal-badge bg-white p-4 rounded-xl shadow-md flex items-center">
+                    <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-royalblue mr-3">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div>
+                        <p class="font-semibold">Royal Price Guarantee</p>
+                        <p class="text-sm text-slate-500">We'll match any lower price</p>
+                    </div>
+                </div>
+                <div class="royal-badge bg-white p-4 rounded-xl shadow-md flex items-center">
+                    <div class="w-10 h-10 rounded-full bg-yellow-50 flex items-center justify-center text-gold mr-3">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div>
+                        <p class="font-semibold">24/7 Concierge</p>
+                        <p class="text-sm text-slate-500">Personal travel assistants</p>
+                    </div>
+                </div>
+                <div class="royal-badge bg-white p-4 rounded-xl shadow-md flex items-center">
+                    <div class="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center text-navy mr-3">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <div>
+                        <p class="font-semibold">VIP Privileges</p>
+                        <p class="text-sm text-slate-500">Exclusive access & upgrades</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Crown Destinations -->
+    <section class="py-16 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-playfair font-bold mb-4">Crown Jewel Destinations</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto">Experience the world's most exclusive destinations reserved for the discerning traveler</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="destination-card relative h-72 rounded-2xl overflow-hidden shadow-lg" style="background-image: url('https://images.unsplash.com/photo-1565967511849-76a60a516170?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4 text-white">
+                        <h3 class="font-bold text-xl">Santorini Elite Villas</h3>
+                        <p>From €1,200/night</p>
+                        <div class="mt-2 flex justify-between items-center">
+                            <span class="bg-gold text-royalblue px-2 py-1 rounded text-xs font-bold">PRIVATE POOL</span>
+                            <span class="text-yellow-400">
+                                <i class="fas fa-star"></i> 5.0
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-card relative h-72 rounded-2xl overflow-hidden shadow-lg" style="background-image: url('https://images.unsplash.com/photo-1580502304784-8985b7eb7260?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4 text-white">
+                        <h3 class="font-bold text-xl">Maldives Private Island</h3>
+                        <p>From $2,500/night</p>
+                        <div class="mt-2 flex justify-between items-center">
+                            <span class="bg-gold text-royalblue px-2 py-1 rounded text-xs font-bold">BEACHFRONT</span>
+                            <span class="text-yellow-400">
+                                <i class="fas fa-star"></i> 5.0
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-card relative h-72 rounded-2xl overflow-hidden shadow-lg" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4 text-white">
+                        <h3 class="font-bold text-xl">Kyoto Imperial Retreat</h3>
+                        <p>From ¥250,000/night</p>
+                        <div class="mt-2 flex justify-between items-center">
+                            <span class="bg-gold text-royalblue px-2 py-1 rounded text-xs font-bold">TRADITIONAL</span>
+                            <span class="text-yellow-400">
+                                <i class="fas fa-star"></i> 4.9
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-card relative h-72 rounded-2xl overflow-hidden shadow-lg" style="background-image: url('https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4 text-white">
+                        <h3 class="font-bold text-xl">Parisian Palace Suite</h3>
+                        <p>From €1,800/night</p>
+                        <div class="mt-2 flex justify-between items-center">
+                            <span class="bg-gold text-royalblue px-2 py-1 rounded text-xs font-bold">CITY CENTER</span>
+                            <span class="text-yellow-400">
+                                <i class="fas fa-star"></i> 4.8
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Regal Experiences -->
+    <section class="py-16 bg-gradient-to-br from-white to-cream px-4">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-playfair font-bold mb-4">Regal Experiences</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto">Curated luxury experiences designed exclusively for our royal guests</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="experience-card bg-white rounded-2xl shadow-lg overflow-hidden transition border border-gold/20">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1551632436-5a8a9a7e8a8d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cooking Class" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 right-4 bg-gold text-royalblue px-3 py-1 rounded-full text-sm font-bold">VIP ONLY</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-bold text-xl">Private Chef Experience</h3>
+                            <span class="crown-icon text-gold font-bold">$349</span>
+                        </div>
+                        <p class="text-slate-600 mb-4">Michelin-star chef prepares a custom menu in your private villa</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm bg-royalblue text-white px-2 py-1 rounded">3 Hours</span>
+                            <span class="text-yellow-400">
+                                <i class="fas fa-star"></i> 4.9 (87)
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="experience-card bg-white rounded-2xl shadow-lg overflow-hidden transition border border-gold/20">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hiking" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 right-4 bg-gold text-royalblue px-3 py-1 rounded-full text-sm font-bold">NEW</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-bold text-xl">Helicopter Wine Tour</h3>
+                            <span class="crown-icon text-gold font-bold">$899</span>
+                        </div>
+                        <p class="text-slate-600 mb-4">Private helicopter tour to exclusive vineyards with tasting</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm bg-royalblue text-white px-2 py-1 rounded">Full Day</span>
+                            <span class="text-yellow-400">
+                                <i class="fas fa-star"></i> 5.0 (42)
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="experience-card bg-white rounded-2xl shadow-lg overflow-hidden transition border border-gold/20">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1562514947-bf9cf8e45e3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Boat Tour" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 right-4 bg-gold text-royalblue px-3 py-1 rounded-full text-sm font-bold">LIMITED</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-bold text-xl">Superyacht Sunset Cruise</h3>
+                            <span class="crown-icon text-gold font-bold">$1,499</span>
+                        </div>
+                        <p class="text-slate-600 mb-4">Private 80ft yacht with crew, champagne, and gourmet dining</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm bg-royalblue text-white px-2 py-1 rounded">4 Hours</span>
+                            <span class="text-yellow-400">
+                                <i class="fas fa-star"></i> 4.9 (64)
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Royal Deals -->
+    <section class="py-16 px-4 bg-gradient-to-br from-royalblue to-navy">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-playfair font-bold mb-4 text-white">Royal Deals & Offers</h2>
+                <p class="text-blue-100 max-w-2xl mx-auto">Exclusive privileges and offers for our esteemed guests</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="deal-card bg-gradient-to-br from-gold to-yellow-200 rounded-2xl shadow-xl p-6 transition relative overflow-hidden">
+                    <div class="absolute top-4 right-4 bg-royalblue text-white px-3 py-1 rounded-full text-sm font-bold">LIMITED</div>
+                    <div class="relative z-10">
+                        <h3 class="font-bold text-2xl mb-2 text-royalblue">Mediterranean Escape</h3>
+                        <p class="text-royalblue/90 mb-4">7 nights in luxury villa with private chef, yacht day, and transfers</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="line-through text-royalblue/60">$15,999</span>
+                                <span class="font-bold text-2xl text-royalblue ml-2">$12,499</span>
+                                <p class="text-sm text-royalblue mt-1">Save $3,500</p>
+                            </div>
+                            <div class="countdown-box px-3 py-2 rounded-lg">
+                                <p class="text-white text-sm">Offer ends in:</p>
+                                <p id="countdown" class="text-white font-bold">48h 22m 10s</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="deal-card bg-gradient-to-br from-cream to-white rounded-2xl shadow-xl p-6 transition relative overflow-hidden">
+                    <div class="absolute top-4 right-4 bg-gold text-royalblue px-3 py-1 rounded-full text-sm font-bold">VIP</div>
+                    <div class="relative z-10">
+                        <h3 class="font-bold text-2xl mb-2">Royal Honeymoon Package</h3>
+                        <p class="text-slate-600 mb-4">14 nights in premium suites with private butler, spa credits, and experiences</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-xs text-slate-500">Complimentary upgrades:</span>
+                                <ul class="text-slate-600 text-sm mt-1">
+                                    <li><i class="fas fa-spa text-gold mr-2"></i> Couples massage</li>
+                                    <li><i class="fas fa-wine-glass-alt text-gold mr-2"></i> Champagne reception</li>
+                                    <li><i class="fas fa-crown text-gold mr-2"></i> VIP airport service</li>
+                                </ul>
+                            </div>
+                            <button class="px-4 py-2 bg-gradient-to-r from-gold to-yellow-200 text-royalblue rounded-lg font-semibold hover:opacity-90 transition">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-playfair font-bold mb-4">Royal Testimonials</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto">Hear from our esteemed guests about their royal experiences</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="testimonial-card bg-white rounded-2xl shadow-lg p-6 border border-gold/30">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-gold to-yellow-200 flex items-center justify-center text-royalblue font-bold mr-4">AJ</div>
+                        <div>
+                            <h4 class="font-bold">Amir Al-Jabir</h4>
+                            <div class="text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 italic">"The private yacht experience arranged by Royal Vacations was beyond exceptional. Every detail was perfection!"</p>
+                    <div class="mt-4 flex items-center text-sm text-slate-500">
+                        <i class="fas fa-map-marker-alt text-gold mr-2"></i>
+                        Maldives Private Island
+                    </div>
+                </div>
+                
+                <div class="testimonial-card bg-white rounded-2xl shadow-lg p-6 border border-gold/30">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-gold to-yellow-200 flex items-center justify-center text-royalblue font-bold mr-4">ES</div>
+                        <div>
+                            <h4 class="font-bold">Eleanor Sinclair</h4>
+                            <div class="text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 italic">"Our butler service in Santorini made us feel like royalty. The attention to detail was impeccable."</p>
+                    <div class="mt-4 flex items-center text-sm text-slate-500">
+                        <i class="fas fa-map-marker-alt text-gold mr-2"></i>
+                        Santorini Elite Villa
+                    </div>
+                </div>
+                
+                <div class="testimonial-card bg-white rounded-2xl shadow-lg p-6 border border-gold/30">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-gold to-yellow-200 flex items-center justify-center text-royalblue font-bold mr-4">MR</div>
+                        <div>
+                            <h4 class="font-bold">Marcus Reynolds</h4>
+                            <div class="text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 italic">"The helicopter wine tour was the highlight of our anniversary. Royal Vacations delivers true luxury."</p>
+                    <div class="mt-4 flex items-center text-sm text-slate-500">
+                        <i class="fas fa-map-marker-alt text-gold mr-2"></i>
+                        Tuscany Vineyard Tour
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Concierge Service -->
+    <section class="py-16 bg-gradient-to-r from-gold/10 to-cream px-4">
+        <div class="container mx-auto max-w-4xl text-center">
+            <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 border border-gold/30">
+                <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-r from-gold to-yellow-200 flex items-center justify-center text-royalblue text-3xl mb-6">
+                    <i class="fas fa-concierge-bell"></i>
+                </div>
+                <h2 class="text-3xl font-playfair font-bold mb-4">Personal Royal Concierge Service</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto mb-8">Our dedicated concierge team is available 24/7 to craft your perfect luxury experience, handle all arrangements, and ensure every detail exceeds your expectations.</p>
+                <button class="px-8 py-4 bg-gradient-to-r from-royalblue to-navy text-white rounded-xl font-semibold hover:opacity-90 transition shadow-lg">
+                    Request Concierge <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-royalblue text-white py-12 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-gold to-yellow-200 flex items-center justify-center text-royalblue font-bold text-xl mr-3">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <span class="text-xl font-playfair font-bold text-white">Royal Vacations</span>
+                    </div>
+                    <p class="text-blue-100 mb-4">Crafting extraordinary luxury experiences for the discerning traveler since 2005.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-navy flex items-center justify-center hover:bg-gold hover:text-royalblue transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-navy flex items-center justify-center hover:bg-gold hover:text-royalblue transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-navy flex items-center justify-center hover:bg-gold hover:text-royalblue transition">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4 text-gold">Luxury Escapes</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-blue-100 hover:text-gold transition">Private Island Resorts</a></li>
+                        <li><a href="#" class="text-blue-100 hover:text-gold transition">Alpine Chalets</a></li>
+                        <li><a href="#" class="text-blue-100 hover:text-gold transition">Historic Palaces</a></li>
+                        <li><a href="#" class="text-blue-100 hover:text-gold transition">Safari Lodges</a></li>
+                        <li><a href="#" class="text-blue-100 hover:text-gold transition">Superyacht Charters</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4 text-gold">VIP Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-blue-100 hover:text-gold transition">Private Jet Charter</a></li>
+                        <li><a href="#" class="text-blue-100 hover:text-gold transition">Butler Training</a></li>
+                        <li><a href="#" class="text-blue-100 hover:text-gold transition">Event Planning</a></li>
+                        <li><a href="#" class="text-blue-100 hover:text-gold transition">Security Detail</a></li>
+                        <li><a href="#" class="text-blue-100 hover:text-gold transition">Personal Concierge</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4 text-gold">Contact</h4>
+                    <ul class="space-y-3 text-blue-100">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-gold mt-1 mr-3"></i>
+                            <span>Royal Tower, 1 Palace Road, Monaco</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt text-gold mt-1 mr-3"></i>
+                            <span>+377 93 50 60 70</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope text-gold mt-1 mr-3"></i>
+                            <span>concierge@royalvacations.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock text-gold mt-1 mr-3"></i>
+                            <span>24/7 Concierge Service</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-navy mt-12 pt-8 text-center text-blue-200">
+                <p>© 2023 Royal Vacations. All rights reserved. | Privacy Policy | Terms of Service</p>
+                <p class="mt-2 text-sm">Member of The Luxury Travel Alliance | Virtuoso Preferred Partner</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown timer for deals
+        function updateCountdown() {
+            const countdownElement = document.getElementById('countdown');
+            if (countdownElement) {
+                const now = new Date();
+                const tomorrow = new Date(now);
+                tomorrow.setDate(tomorrow.getDate() + 2);
+                tomorrow.setHours(0, 0, 0, 0);
+                
+                const diff = tomorrow - now;
+                
+                const hours = Math.floor(diff / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                countdownElement.textContent = `${hours}h ${minutes}m ${seconds}s`;
+            }
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Tab switching
+        const tabs = document.querySelectorAll('.search-tab');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
