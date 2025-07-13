@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singapore-Hong Kong Celebrity Cruise | Royal Vacations</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#D4AF37',
+                        royalblue: '#0C2D48',
+                        navy: '#145DA0',
+                        cream: '#F8F4E9',
+                    },
+                    fontFamily: {
+                        'playfair': ['Playfair Display', 'serif'],
+                        'poppins': ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-poppins text-royalblue bg-cream">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-gold to-yellow-200 flex items-center justify-center text-royalblue font-bold text-xl mr-3">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <span class="text-xl font-playfair font-bold">Royal Vacations</span>
+            </a>
+            <div class="flex items-center space-x-4">
+                <span class="text-sm">Contact Us:</span>
+                <a href="tel:403-615-2322" class="text-royalblue hover:text-gold transition">
+                    <i class="fas fa-phone mr-2"></i>(403)615-2322
+                </a>
+                <a href="index.html" class="text-royalblue hover:text-gold transition-colors">
+                    <i class="fas fa-arrow-left mr-2"></i> Back to Packages
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="relative h-[60vh] bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1565967511849-76a60a516170?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');">
+        <div class="absolute inset-0 bg-black/50"></div>
+        <div class="absolute inset-0 flex items-center">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl">
+                    <h1 class="text-4xl md:text-6xl font-playfair font-bold text-white mb-4">Singapore-Hong Kong Cruise</h1>
+                    <p class="text-xl text-white mb-8">Celebrity Solstice (122,000 tons)</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-white">
+                        <div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg">
+                            <div class="text-lg font-semibold">Interior Cabin</div>
+                            <div class="text-3xl font-bold">$2,565<span class="text-sm">/person</span></div>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg">
+                            <div class="text-lg font-semibold">Balcony Cabin</div>
+                            <div class="text-3xl font-bold">$3,874<span class="text-sm">/person</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-16">
+        <!-- Cruise Details -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-gold/20">
+                <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold mb-4">
+                    <i class="fas fa-ship text-xl"></i>
+                </div>
+                <h3 class="font-bold text-lg mb-2">Cruise Ship</h3>
+                <p class="text-slate-600">Celebrity Solstice</p>
+                <p class="text-slate-600">122,000 tons of luxury</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-gold/20">
+                <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold mb-4">
+                    <i class="fas fa-calendar text-xl"></i>
+                </div>
+                <h3 class="font-bold text-lg mb-2">Departure Dates</h3>
+                <p class="text-slate-600">2025: Dec 18</p>
+                <p class="text-slate-600">2026: Jan 03</p>
+                <p class="text-slate-600">2027: Jan 26</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-gold/20">
+                <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold mb-4">
+                    <i class="fas fa-clock text-xl"></i>
+                </div>
+                <h3 class="font-bold text-lg mb-2">Duration</h3>
+                <p class="text-slate-600">16 Days 15 Nights</p>
+                <p class="text-slate-600">Unforgettable Journey</p>
+            </div>
+        </div>
+
+        <!-- Itinerary -->
+        <div class="mb-16">
+            <h2 class="text-3xl font-playfair font-bold mb-8 text-center">Cruise Itinerary</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="relative">
+                    <div class="absolute left-4 h-full w-0.5 bg-gold/20"></div>
+                    <div class="space-y-8" id="itineraryList">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Destinations Gallery -->
+        <div class="mb-16">
+            <h2 class="text-3xl font-playfair font-bold mb-8 text-center">Featured Destinations</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="group relative overflow-hidden rounded-xl">
+                    <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ko Samui" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                        <div class="p-6 text-white">
+                            <h3 class="text-xl font-bold">Ko Samui</h3>
+                            <p>Thailand's Tropical Paradise</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl">
+                    <img src="https://images.unsplash.com/photo-1508009603885-50cf7c579365?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bangkok" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                        <div class="p-6 text-white">
+                            <h3 class="text-xl font-bold">Bangkok</h3>
+                            <p>Thailand's Vibrant Capital</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl">
+                    <img src="https://images.unsplash.com/photo-1555921015-5532091f6026?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hanoi" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                        <div class="p-6 text-white">
+                            <h3 class="text-xl font-bold">Hanoi</h3>
+                            <p>Vietnam's Historic Capital</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Map Section -->
+        <div class="mb-16">
+            <h2 class="text-3xl font-playfair font-bold mb-8 text-center">Cruise Route</h2>
+            <div class="bg-white p-6 rounded-xl shadow-lg">
+                <!-- Add Leaflet CSS in head -->
+                <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+                
+                <div id="cruise-map" class="w-full h-[450px] rounded-lg overflow-hidden bg-white"></div>
+                
+                <!-- Add Leaflet JS and initialize map -->
+                <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+                <script>
+                    // Custom port icon
+                    const portIcon = L.divIcon({
+                        html: `<div class="w-4 h-4 bg-blue-600 rounded-full border-2 border-white shadow-lg"></div>`,
+                        className: 'port-marker',
+                        iconSize: [16, 16],
+                        iconAnchor: [8, 8]
+                    });
+
+                    // Initialize map with better zoom
+                    const map = L.map('cruise-map', {
+                        zoomControl: false, // We'll add it to the right side
+                        minZoom: 4  // Prevent zooming out too far
+                    }).setView([12.0, 110.0], 5);
+                    
+                    // Move zoom control to the right
+                    L.control.zoom({
+                        position: 'topright'
+                    }).addTo(map);
+
+                    // Add OpenStreetMap tiles with custom style
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '© OpenStreetMap contributors',
+                        className: 'map-tiles' // For custom CSS if needed
+                    }).addTo(map);
+                    
+                    // Define cruise ports with descriptions
+                    const ports = [
+                        { name: 'Singapore', desc: 'Departure Port', coords: [1.3521, 103.8198] },
+                        { name: 'Ko Samui', desc: 'Thailand', coords: [9.5120, 100.0129] },
+                        { name: 'Bangkok', desc: 'Thailand', coords: [13.7563, 100.5018] },
+                        { name: 'Hong Kong', desc: 'Final Destination', coords: [22.3193, 114.1694] }
+                    ];
+                    
+                    // Add markers for each port with custom popups
+                    ports.forEach(port => {
+                        L.marker(port.coords, { icon: portIcon })
+                         .bindPopup(`<div class="font-bold">${port.name}</div><div class="text-sm text-gray-600">${port.desc}</div>`, {
+                             className: 'custom-popup'
+                         })
+                         .addTo(map);
+                    });
+                    
+                    // Create cruise route line with animation
+                    const routeCoords = ports.map(port => port.coords);
+                    const routeLine = L.polyline(routeCoords, {
+                        color: '#1d4ed8',
+                        weight: 4,
+                        dashArray: '10,6',
+                        opacity: 0.9,
+                        lineCap: 'round',
+                        lineJoin: 'round'
+                    }).addTo(map);
+
+                    // Fit map to route bounds with padding
+                    map.fitBounds(routeLine.getBounds().pad(0.2));
+                    
+                    // Add enhanced legend
+                    const legend = L.control({ position: 'bottomright' });
+                    legend.onAdd = function(map) {
+                        const div = L.DomUtil.create('div', 'bg-white px-3 py-2 rounded-lg shadow-md');
+                        div.innerHTML = `
+                            <div class="flex items-center space-x-3">
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-4 h-4 bg-blue-600 rounded-full border-2 border-white"></div>
+                                    <span class="text-gray-700">Port Stop</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-8 h-0.5 bg-blue-600 border border-blue-600 border-dashed"></div>
+                                    <span class="text-gray-700">Cruise Route</span>
+                                </div>
+                            </div>
+                        `;
+                        return div;
+                    };
+                    legend.addTo(map);
+                </script>
+                <div class="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                    <div class="bg-white p-3 rounded-lg shadow-sm">
+                        <div class="font-bold">Singapore</div>
+                        <div class="text-slate-500">Departure</div>
+                    </div>
+                    <div class="bg-white p-3 rounded-lg shadow-sm">
+                        <div class="font-bold">Ko Samui</div>
+                        <div class="text-slate-500">Thailand</div>
+                    </div>
+                    <div class="bg-white p-3 rounded-lg shadow-sm">
+                        <div class="font-bold">Bangkok</div>
+                        <div class="text-slate-500">Thailand</div>
+                    </div>
+                    <div class="bg-white p-3 rounded-lg shadow-sm">
+                        <div class="font-bold">Hong Kong</div>
+                        <div class="text-slate-500">Final Destination</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Booking Section -->
+        <div class="text-center">
+            <h2 class="text-3xl font-playfair font-bold mb-4">Ready to Book Your Cruise?</h2>
+            <p class="text-slate-600 mb-8">Contact us now to secure your preferred cabin</p>
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
+                <button onclick="window.location.href='tel:403-615-2322'" class="flex items-center justify-center space-x-2 bg-gold text-white px-6 py-3 rounded-full hover:bg-gold/90 transition duration-300">
+                    <i class="fas fa-phone"></i>
+                    <span>Call (403)615-2322</span>
+                </button>
+                <button onclick="window.location.href='tel:403-615-2322'" class="flex items-center justify-center space-x-2 bg-royalblue text-white px-6 py-3 rounded-full hover:bg-royalblue/90 transition duration-300">
+                    <i class="fas fa-phone"></i>
+                    <span>Call (403)615-2322</span>
+                </button>
+            </div>
+            <div class="mt-8">
+                <p class="text-sm text-slate-500">Visit us at: 197-1518 Centre Street NE Calgary AB</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const itineraryData = [
+            { day: 1, title: 'Singapore Departure', location: 'Singapore, Singapore' },
+            { day: 2, title: 'At Sea', location: 'Cruising' },
+            { day: 3, title: 'Ko Samui', location: 'Thailand' },
+            { day: '4-5', title: 'Bangkok (Laem Chabang)', location: 'Thailand' },
+            { day: 6, title: 'At Sea', location: 'Cruising' },
+            { day: '7-8', title: 'Ho Chi Minh (Phu My)', location: 'Vietnam' },
+            { day: 9, title: 'At Sea', location: 'Cruising' },
+            { day: 10, title: 'Hue/Danang (Chan May)', location: 'Vietnam' },
+            { day: '11-12', title: 'Hanoi', location: 'Vietnam' },
+            { day: 13, title: 'At Sea', location: 'Cruising' },
+            { day: '14-15', title: 'Hong Kong', location: 'China' },
+            { day: 16, title: 'Hong Kong Departure', location: 'China' }
+        ];
+
+        // Populate itinerary
+        const itineraryList = document.getElementById('itineraryList');
+        itineraryData.forEach(item => {
+            itineraryList.innerHTML += `
+                <div class="relative pl-8">
+                    <div class="absolute left-0 w-8 flex items-center justify-center">
+                        <div class="w-3 h-3 bg-gold rounded-full"></div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gold/20">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                            <div>
+                                <span class="text-gold font-bold">Day ${item.day}</span>
+                                <h3 class="font-bold text-lg">${item.title}</h3>
+                            </div>
+                            <span class="text-slate-500">${item.location}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>

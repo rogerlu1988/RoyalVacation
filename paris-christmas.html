@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas in Paris & Normandy | Royal Vacations</title>
+    <meta name="description" content="Experience the magic of Christmas in Paris and Normandy. 9-day luxury tour including Seine River cruise and festive celebrations.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#D4AF37',
+                        royalblue: '#0C2D48',
+                        navy: '#145DA0',
+                        cream: '#F8F4E9',
+                    },
+                    fontFamily: {
+                        'playfair': ['Playfair Display', 'serif'],
+                        'poppins': ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-poppins text-royalblue bg-cream">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-gold to-yellow-200 flex items-center justify-center text-royalblue font-bold text-xl mr-3">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <span class="text-xl font-playfair font-bold">Royal Vacations</span>
+            </a>
+            <a href="index.html" class="text-royalblue hover:text-gold transition-colors">
+                <i class="fas fa-arrow-left mr-2"></i> Back to Packages
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="relative h-[60vh] bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1499856871958-5b9627545d1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+        <div class="absolute inset-0 bg-black/50"></div>
+        <div class="absolute inset-0 flex items-center justify-center text-center text-white">
+            <div>
+                <div class="bg-gold/20 backdrop-blur px-4 py-2 rounded-lg inline-block mb-4">
+                    <span class="text-lg">December 8, 13, 15, 16, 2025</span>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-playfair font-bold mb-4">Christmas in Paris & Normandy</h1>
+                <p class="text-xl mb-8">9-Day Magical Holiday Experience</p>
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
+                    <div class="bg-gold/20 backdrop-blur-sm px-6 py-3 rounded-lg">
+                        <span class="block text-2xl font-bold">$3,675 CAD</span>
+                        <span class="text-sm">per person</span>
+                    </div>
+                    <button onclick="scrollToBooking()" class="px-8 py-4 bg-gradient-to-r from-gold to-yellow-500 text-royalblue rounded-xl font-semibold hover:opacity-90 transition shadow-lg">
+                        Book Now <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-16">
+        <!-- Inclusions -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16">
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-gold/20">
+                <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold mb-4">
+                    <i class="fas fa-plane text-xl"></i>
+                </div>
+                <h3 class="font-bold text-lg mb-2">Flights</h3>
+                <ul class="space-y-2 text-slate-600">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-gold mr-2"></i>
+                        Return flights included
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-gold mr-2"></i>
+                        Airport transfers
+                    </li>
+                </ul>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-gold/20">
+                <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold mb-4">
+                    <i class="fas fa-ship text-xl"></i>
+                </div>
+                <h3 class="font-bold text-lg mb-2">Seine River Cruise</h3>
+                <ul class="space-y-2 text-slate-600">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-gold mr-2"></i>
+                        Scenic river cruising
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-gold mr-2"></i>
+                        Christmas markets
+                    </li>
+                </ul>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-gold/20">
+                <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold mb-4">
+                    <i class="fas fa-hotel text-xl"></i>
+                </div>
+                <h3 class="font-bold text-lg mb-2">Accommodation</h3>
+                <ul class="space-y-2 text-slate-600">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-gold mr-2"></i>
+                        Luxury hotels
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-gold mr-2"></i>
+                        Daily breakfast
+                    </li>
+                </ul>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-gold/20">
+                <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold mb-4">
+                    <i class="fas fa-camera text-xl"></i>
+                </div>
+                <h3 class="font-bold text-lg mb-2">Sightseeing</h3>
+                <ul class="space-y-2 text-slate-600">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-gold mr-2"></i>
+                        Guided tours
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-gold mr-2"></i>
+                        Entry fees included
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Itinerary -->
+        <div class="mb-16">
+            <h2 class="text-3xl font-playfair font-bold mb-8 text-center">Tour Itinerary</h2>
+            <div class="max-w-4xl mx-auto space-y-6">
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-gold/20">
+                    <div class="grid grid-cols-[120px,1fr] gap-6">
+                        <div class="text-center">
+                            <div class="font-bold text-lg text-gold">Day 1</div>
+                            <div class="text-sm text-slate-500">Dec 8</div>
+                        </div>
+                        <div>
+                            <h3 class="font-bold mb-2">Home to Paris, France</h3>
+                            <p class="text-slate-600">Arrive in the City of Light. Transfer to your hotel and enjoy a welcome dinner.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="fullItinerary" class="space-y-6">
+                    <!-- Days 2-9 will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Map Section -->
+        <div class="mb-16">
+            <h2 class="text-3xl font-playfair font-bold mb-8 text-center">Journey Route</h2>
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-gold/20">
+                <img src="https://images.unsplash.com/photo-1572278374072-e5b54b034e4d" alt="France Map" class="w-full rounded-lg">
+                <div class="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="text-center">
+                        <div class="font-bold text-gold">Paris</div>
+                        <div class="text-sm text-slate-600">4 Nights</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="font-bold text-gold">Rouen</div>
+                        <div class="text-sm text-slate-600">2 Nights</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="font-bold text-gold">Seine River</div>
+                        <div class="text-sm text-slate-600">Scenic Cruising</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="font-bold text-gold">Le Pecq</div>
+                        <div class="text-sm text-slate-600">1 Night</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Booking Section -->
+        <div id="bookingSection" class="text-center">
+            <h2 class="text-3xl font-playfair font-bold mb-4">Ready to Experience Christmas in Paris?</h2>
+            <p class="text-slate-600 mb-8">Limited spots available for December 2025 departures</p>
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
+                <div class="bg-white px-6 py-4 rounded-xl shadow-lg border border-gold/20">
+                    <div class="text-sm text-slate-500">Price per person</div>
+                    <div class="text-3xl font-bold text-gold">$3,675 CAD</div>
+                    <div class="text-sm text-slate-500">($2,475 USD)</div>
+                </div>
+                <button class="px-8 py-4 bg-gradient-to-r from-gold to-yellow-500 text-royalblue rounded-xl font-semibold hover:opacity-90 transition shadow-lg">
+                    Book Now <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+                <button class="px-8 py-4 bg-gradient-to-r from-royalblue to-navy text-white rounded-xl font-semibold hover:opacity-90 transition shadow-lg">
+                    Contact Us <i class="fas fa-phone ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const itineraryData = [
+            { day: 2, date: 'Dec 9', title: 'Paris, France', description: 'Full day exploring Paris including Eiffel Tower and Christmas markets.' },
+            { day: 3, date: 'Dec 10', title: 'Paris, France', description: 'Visit Notre-Dame Cathedral and enjoy festive shopping.' },
+            { day: 4, date: 'Dec 11', title: 'Paris, France', description: 'Seine River scenic sailing, evening Christmas lights tour.' },
+            { day: 5, date: 'Dec 12', title: 'Rouen, France', description: 'Explore medieval Rouen and its Christmas traditions.' },
+            { day: 6, date: 'Dec 13', title: 'Rouen, France', description: 'Day trip to Norman countryside and local festivities.' },
+            { day: 7, date: 'Dec 14', title: 'Paris (Le Pecq), France', description: 'Scenic Seine River sailing, visit Palace of Versailles.' },
+            { day: 8, date: 'Dec 15', title: 'Paris, France', description: 'Free day for shopping and optional activities.' },
+            { day: 9, date: 'Dec 16', title: 'Paris, France', description: 'Transfer to airport for return flight.' }
+        ];
+
+        const fullItinerary = document.getElementById('fullItinerary');
+        itineraryData.forEach(item => {
+            fullItinerary.innerHTML += `
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-gold/20">
+                    <div class="grid grid-cols-[120px,1fr] gap-6">
+                        <div class="text-center">
+                            <div class="font-bold text-lg text-gold">Day ${item.day}</div>
+                            <div class="text-sm text-slate-500">${item.date}</div>
+                        </div>
+                        <div>
+                            <h3 class="font-bold mb-2">${item.title}</h3>
+                            <p class="text-slate-600">${item.description}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+
+        function scrollToBooking() {
+            document.getElementById('bookingSection').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

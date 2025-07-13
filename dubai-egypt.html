@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dubai & Egypt 15-Day Tour | Royal Vacations</title>
+    <meta name="description" content="Experience the wonders of Dubai and Egypt in this 15-day luxury tour including 5-star hotels and exclusive experiences.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#D4AF37',
+                        royalblue: '#0C2D48',
+                        navy: '#145DA0',
+                        cream: '#F8F4E9',
+                    },
+                    fontFamily: {
+                        'playfair': ['Playfair Display', 'serif'],
+                        'poppins': ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-poppins text-royalblue bg-cream">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-gold to-yellow-200 flex items-center justify-center text-royalblue font-bold text-xl mr-3">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <span class="text-xl font-playfair font-bold">Royal Vacations</span>
+            </a>
+            <a href="index.html" class="text-royalblue hover:text-gold transition-colors">
+                <i class="fas fa-arrow-left mr-2"></i> Back to Packages
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="relative h-[60vh] bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1539650116574-8efeb43e2750?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+        <div class="absolute inset-0 bg-black/50"></div>
+        <div class="absolute inset-0 flex items-center justify-center text-center text-white">
+            <div>
+                <div class="bg-gold/20 backdrop-blur px-4 py-2 rounded-lg inline-block mb-4">
+                    <span class="text-lg">November 9 - 23, 2025</span>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-playfair font-bold mb-4">Dubai & Egypt Adventure</h1>
+                <p class="text-xl mb-8">15-Day Luxury Experience</p>
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
+                    <div class="bg-gold/20 backdrop-blur-sm px-6 py-3 rounded-lg">
+                        <span class="block text-2xl font-bold">$2,750 USD</span>
+                        <span class="text-sm">per person</span>
+                    </div>
+                    <button onclick="scrollToBooking()" class="px-8 py-4 bg-gradient-to-r from-gold to-yellow-500 text-royalblue rounded-xl font-semibold hover:opacity-90 transition shadow-lg">
+                        Book Now <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-16">
+        <!-- Highlights -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16">
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-gold/20">
+                <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold mb-4">
+                    <i class="fas fa-hotel text-xl"></i>
+                </div>
+                <h3 class="font-bold text-lg mb-2">5-Star Hotels</h3>
+                <ul class="space-y-2 text-slate-600">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-gold mr-2"></i>
+                        Luxury accommodations
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-gold mr-2"></i>
+                        Premium locations
+                    </li>
+                </ul>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-gold/20">
+                <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold mb-4">
+                    <i class="fas fa-bus text-xl"></i>
+                </div>
+                <h3 class="font-bold text-lg mb-2">Transportation</h3>
+                <ul class="space-y-2 text-slate-600">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-gold mr-2"></i>
+                        Domestic flights
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-gold mr-2"></i>
+                        Private transfers
+                    </li>
+                </ul>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-gold/20">
+                <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold mb-4">
+                    <i class="fas fa-utensils text-xl"></i>
+                </div>
+                <h3 class="font-bold text-lg mb-2">Dining</h3>
+                <ul class="space-y-2 text-slate-600">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-gold mr-2"></i>
+                        Daily breakfast
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-gold mr-2"></i>
+                        Selected meals
+                    </li>
+                </ul>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-gold/20">
+                <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold mb-4">
+                    <i class="fas fa-camera text-xl"></i>
+                </div>
+                <h3 class="font-bold text-lg mb-2">Experiences</h3>
+                <ul class="space-y-2 text-slate-600">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-gold mr-2"></i>
+                        Guided tours
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-gold mr-2"></i>
+                        Entry fees
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Photo Gallery -->
+        <div class="mb-16">
+            <h2 class="text-3xl font-playfair font-bold mb-8 text-center">Destination Highlights</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="relative group cursor-pointer overflow-hidden rounded-xl" onclick="openGallery(0)">
+                    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c" alt="Dubai" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="text-white text-xl font-bold">Dubai</span>
+                    </div>
+                </div>
+                <div class="relative group cursor-pointer overflow-hidden rounded-xl" onclick="openGallery(1)">
+                    <img src="https://images.unsplash.com/photo-1539650116574-8efeb43e2750" alt="Abu Dhabi" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="text-white text-xl font-bold">Abu Dhabi</span>
+                    </div>
+                </div>
+                <div class="relative group cursor-pointer overflow-hidden rounded-xl" onclick="openGallery(2)">
+                    <img src="https://images.unsplash.com/photo-1568322445389-f64ac2515020" alt="Egypt" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="text-white text-xl font-bold">Egypt</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Itinerary -->
+        <div class="mb-16">
+            <h2 class="text-3xl font-playfair font-bold mb-8 text-center">Tour Itinerary</h2>
+            <div class="max-w-4xl mx-auto">
+                <div id="itineraryList" class="space-y-6">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Booking Section -->
+        <div id="bookingSection" class="text-center">
+            <h2 class="text-3xl font-playfair font-bold mb-4">Ready to Start Your Adventure?</h2>
+            <p class="text-slate-600 mb-8">Book now to secure your spot for November 2025</p>
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
+                <div class="bg-white px-6 py-4 rounded-xl shadow-lg border border-gold/20">
+                    <div class="text-sm text-slate-500">Price per person</div>
+                    <div class="text-3xl font-bold text-gold">$2,750 USD</div>
+                    <div class="text-sm text-slate-500">Excluding international flights</div>
+                </div>
+                <button class="px-8 py-4 bg-gradient-to-r from-gold to-yellow-500 text-royalblue rounded-xl font-semibold hover:opacity-90 transition shadow-lg">
+                    Book Now <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+                <button class="px-8 py-4 bg-gradient-to-r from-royalblue to-navy text-white rounded-xl font-semibold hover:opacity-90 transition shadow-lg">
+                    Contact Us <i class="fas fa-phone ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Modal -->
+    <div id="galleryModal" class="fixed inset-0 bg-black/90 z-50 hidden">
+        <div class="absolute top-4 right-4">
+            <button onclick="closeGallery()" class="text-white hover:text-gold transition">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+        </div>
+        <div class="h-full flex items-center justify-center p-4">
+            <button onclick="prevImage()" class="absolute left-4 text-white hover:text-gold transition">
+                <i class="fas fa-chevron-left text-2xl"></i>
+            </button>
+            <img id="galleryImage" src="" alt="Gallery Image" class="max-h-[80vh] max-w-[90vw] object-contain">
+            <button onclick="nextImage()" class="absolute right-4 text-white hover:text-gold transition">
+                <i class="fas fa-chevron-right text-2xl"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const itineraryData = [
+            { day: 1, title: 'Dubai Arrival', description: 'Arrival at Dubai International Airport. Transfer to 5-star hotel.' },
+            { day: 2, title: 'Dubai City Tour', description: 'Visit Burj Khalifa, Dubai Mall, and traditional souks.' },
+            { day: 3, title: 'Dubai (B/L/D)', description: 'Desert safari, camel ride, and BBQ dinner under the stars.' },
+            { day: 4, title: 'Dubai/Abu Dhabi', description: 'Visit Sheikh Zayed Mosque and Ferrari World.' },
+            { day: 5, title: 'Abu Dhabi (B/L/D)', description: 'City tour and Louvre Abu Dhabi.' },
+            { day: 6, title: 'Abu Dhabi (B/L/D)', description: 'Yas Island and evening dhow cruise.' },
+            { day: 7, title: 'Abu Dhabi/Dubai', description: 'Return to Dubai, evening at leisure.' },
+            { day: 8, title: 'Dubai (B/L/D)', description: 'Free day for shopping and optional activities.' },
+            { day: 9, title: 'Dubai/Cairo', description: 'Flight to Cairo, transfer to hotel.' },
+            { day: 10, title: 'Cairo (B/L)', description: 'Pyramids of Giza and Egyptian Museum.' },
+            { day: 11, title: 'Cairo (B/L/D)', description: 'Islamic Cairo and Khan el-Khalili Bazaar.' },
+            { day: 12, title: 'Cairo/Alexandria', description: 'Day trip to Alexandria.' },
+            { day: 13, title: 'Cairo (B/L/D)', description: 'Memphis and Sakkara tour.' },
+            { day: 14, title: 'Cairo (B/L)', description: 'Free day for optional activities.' },
+            { day: 15, title: 'Departure', description: 'Transfer to airport for return flight.' }
+        ];
+
+        // Populate itinerary
+        const itineraryList = document.getElementById('itineraryList');
+        itineraryData.forEach(item => {
+            itineraryList.innerHTML += `
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-gold/20">
+                    <div class="grid grid-cols-[120px,1fr] gap-6">
+                        <div class="text-center">
+                            <div class="font-bold text-lg text-gold">Day ${item.day}</div>
+                        </div>
+                        <div>
+                            <h3 class="font-bold mb-2">${item.title}</h3>
+                            <p class="text-slate-600">${item.description}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+
+        // Gallery functionality
+        const galleryImages = [
+            'https://images.unsplash.com/photo-1512453979798-5ea266f8880c',
+            'https://images.unsplash.com/photo-1539650116574-8efeb43e2750',
+            'https://images.unsplash.com/photo-1568322445389-f64ac2515020'
+        ];
+
+        let currentImageIndex = 0;
+
+        function openGallery(index) {
+            currentImageIndex = index;
+            document.getElementById('galleryImage').src = galleryImages[index];
+            document.getElementById('galleryModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGallery() {
+            document.getElementById('galleryModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            document.getElementById('galleryImage').src = galleryImages[currentImageIndex];
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            document.getElementById('galleryImage').src = galleryImages[currentImageIndex];
+        }
+
+        function scrollToBooking() {
+            document.getElementById('bookingSection').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
